@@ -21,3 +21,15 @@ C:\Users\ja122756\Documents\Visual Studio 2015\Projects\TextFileChallengeStarter
 C:\Users\ja122756\Documents\Visual Studio 2015\Projects\TextFileChallengeStarterCode\TextFileChallenge\obj\Debug\TextFileChallenge.Properties.Resources.resources
 C:\Users\ja122756\Documents\Visual Studio 2015\Projects\TextFileChallengeStarterCode\TextFileChallenge\obj\Debug\TextFileChallenge.csproj.GenerateResource.Cache
 C:\Users\ja122756\Documents\Visual Studio 2015\Projects\TextFileChallengeStarterCode\TextFileChallenge\obj\Debug\TextFileChallenge.csprojResolveAssemblyReference.cache
+C:\nad-development\james\TextFileEdit\TextFileChallenge\obj\Debug\TextFileChallenge.csprojAssemblyReference.cache
+C:\nad-development\james\TextFileEdit\TextFileChallenge\obj\Debug\TextFileChallenge.ChallengeForm.resources
+C:\nad-development\james\TextFileEdit\TextFileChallenge\obj\Debug\TextFileChallenge.Properties.Resources.resources
+C:\nad-development\james\TextFileEdit\TextFileChallenge\obj\Debug\TextFileChallenge.csproj.GenerateResource.cache
+C:\nad-development\james\TextFileEdit\TextFileChallenge\obj\Debug\TextFileChallenge.csproj.CoreCompileInputs.cache
+C:\nad-development\james\TextFileEdit\TextFileChallenge\obj\Debug\TextFileChallenge.exe
+C:\nad-development\james\TextFileEdit\TextFileChallenge\obj\Debug\TextFileChallenge.pdb
+C:\nad-development\james\TextFileEdit\TextFileChallenge\bin\Debug\AdvancedDataSet.csv
+C:\nad-development\james\TextFileEdit\TextFileChallenge\bin\Debug\StandardDataSet.csv
+C:\nad-development\james\TextFileEdit\TextFileChallenge\bin\Debug\TextFileChallenge.exe.config
+C:\nad-development\james\TextFileEdit\TextFileChallenge\bin\Debug\TextFileChallenge.exe
+C:\nad-development\james\TextFileEdit\TextFileChallenge\bin\Debug\TextFileChallenge.pdb

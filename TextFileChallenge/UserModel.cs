@@ -27,6 +27,11 @@ namespace TextFileChallenge
                 return $"{ FirstName} { LastName } is { Age } and { aliveStatus }";
             }
         }
+
+        public override string ToString()
+        {
+            return DisplayText;
+        }
     }
 
 }

@@ -171,6 +171,7 @@
             this.Name = "ChallengeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Text File Challenge by Tim Corey";
+            this.Load += new System.EventHandler(this.ChallengeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.agePicker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

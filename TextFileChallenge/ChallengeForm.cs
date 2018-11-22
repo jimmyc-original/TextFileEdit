@@ -16,7 +16,7 @@ namespace TextFileChallenge
     {
         BindingList<UserModel> users = new BindingList<UserModel>();
 
-        UserModel model = new UserModel();
+        //   UserModel model = new UserModel();
 
         public ChallengeForm()
         {
@@ -24,18 +24,18 @@ namespace TextFileChallenge
 
             WireUpDropDown();
 
-            ListBoxPopulator();
-            
+            //   ListBoxPopulator();
+
         }
 
         private void ListBoxPopulator()
         //reference https://docs.microsoft.com/en-us/dotnet/api/system.io.streamreader?view=netframework-4.7.2
         {
-         
+
             try
             {
                 using (System.IO.StreamReader file =
-                    new System.IO.StreamReader(@"C:\Users\ja122756\Documents\Visual Studio 2015\Projects\TextFileChallengeStarterCode\TextFileChallenge\StandardDataSet.csv"))
+                    new System.IO.StreamReader(@"StandardDataSet.csv"))
                 {
                     string line;
                     //read and display lines from the file until the end of that file is reached.
@@ -45,7 +45,7 @@ namespace TextFileChallenge
                         System.Diagnostics.Debug.WriteLine(line);
                         //this fills the user list box
                         usersListBox.Items.Add(line);
-                        
+
                         ////set the listbox to display items in multiple columns
                         //usersListBox.MultiColumn = true;
                         ////set the selection mode to multiple and extend but we dont want that as it higlights multiple users
@@ -65,12 +65,12 @@ namespace TextFileChallenge
 
         private void WireUpDropDown()
         {
-           
-           
+
+
         }
         private void usersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
 
 
         }
@@ -78,64 +78,47 @@ namespace TextFileChallenge
         private void addUserButton_Click(object sender, EventArgs e)
         {
             var localUserModel = new UserModel();
-            
-            File.Write(localUserModel.FirstName + ",");
-            File.Write(localUserModel.LastName + ",");
-            file.Write(localUserModel.Age + ",");
-            file.Write(localUserModel.IsAlive + ",");
-            
-            //List<UserModel> people = new List<UserModel>();
-            //localUserModel.FirstName = firstNameText.ToString();
-            //localUserModel.LastName = lastNameText.ToString();
-            //localUserModel.Age = agePicker
-            //localUserModel.IsAlive = isAliveCheckbox.ToString();
-
-
-
-            people.Add(new UserModel { FirstName = localUserModel.FirstName, LastName = localUserModel.LastName, Age = localUserModel.Age, IsAlive = localUserModel.IsAlive });
-           
-            
+            localUserModel.FirstName = firstNameText.Text;
+            localUserModel.LastName = lastNameText.Text;
+            localUserModel.Age = Convert.ToInt32(agePicker.Text);
+            localUserModel.IsAlive = isAliveCheckbox.Checked;
+            users.Add(localUserModel);
         }
 
         private void saveListButton_Click(object sender, EventArgs e)
         {
 
+            var userList = new List<string>();
 
-
+            userList.Add("FirstName,LastName,Age,IsAlive");
+            foreach (var user in users)
+            {
+                var isalive = user.IsAlive ? "1" : "0";// ternery operator worth learning!
+                userList.Add($"{user.FirstName},{user.LastName},{user.Age},{isalive}");
+            }
+            
+            File.WriteAllLines(@"StandardDataSet.csv",userList);
         }
-        //var localUserModel = new UserModel();
 
-        // using (System.IO.StreamWriter file =
-        //     new System.IO.StreamWriter(@"C:\Users\ja122756\Documents\Visual Studio 2015\Projects\TextFileChallengeStarterCode\TextFileChallenge\StandardDataSet.csv", true))
-        // {
-        //     localUserModel.FirstName = firstNameText.Text.Trim();
-        //     localUserModel.LastName = lastNameText.Text.Trim();
+        private void ChallengeForm_Load(object sender, EventArgs e)
+        {
+            string filePath = @"StandardDataSet.csv";
 
-        //     try
-        //     {
-        //         //neeed to add in a loop if nothing is added.
-
-        //         file.WriteLine();
-        //         file.Write(localUserModel.FirstName + ",");
-        //         file.Write(localUserModel.LastName + ",");
-        //         file.Write(localUserModel.Age + ",");
-        //         file.Write(localUserModel.IsAlive + ",");                                   
-        //     }
-        //     catch
-        //     {
-        //         MessageBox.Show("There was an error");
-        //     }                
-        // }            
+            usersListBox.DataSource = users;
+            List<string> lines = File.ReadAllLines(filePath).Skip(1).ToList();
+            foreach (var line in lines)
+            {
+                string[] entries = line.Split(',');
+                var newUserModel = new UserModel();
+                newUserModel.FirstName = entries[0];
+                newUserModel.LastName = entries[1];
+                newUserModel.Age = Convert.ToInt32(entries[2]);
+                newUserModel.IsAlive = Convert.ToInt32(entries[3]) == 1;
+                users.Add(newUserModel);
+            }
+        }
     }
-
-        //private void saveListButton_Click(object sender, EventArgs e)
-        //{
-
-        //    MessageBox.Show("Saved to file");
-
-        //}
-
-    }
+}
 
 
 
